@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "980121603172",
+    "project_id": "lamha-b0e9e",
+    "storage_bucket": "lamha-b0e9e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980121603172:android:e0a77de83736de42022371",
+        "android_client_info": {
+          "package_name": "com.example.lamha"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD514oUqqQAMein8c628_657twipPt7ZWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
