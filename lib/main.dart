@@ -19,27 +19,32 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
+    return  ScreenUtilInit(
+  designSize: const Size(375, 812),
+  builder: (context, child) {
+    return Directionality( // <-- هنا
+      textDirection: TextDirection.rtl,
       child: MaterialApp.router(
         title: 'LAMHA App',
         debugShowCheckedModeBanner: false,
-         theme: ThemeData(
+        theme: ThemeData(
           fontFamily: 'Cairo',
-         
         ),
-         locale: const Locale('ar', 'EG'),
-          supportedLocales: const [
-            Locale('en', 'US'),
-            Locale('ar', 'EG'),
-          ],
-          localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
+        locale: const Locale('ar', 'EG'),
+        supportedLocales: const [
+          Locale('en', 'US'),
+          Locale('ar', 'EG'),
+        ],
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         routerConfig: AppRouter.router,
       ),
     );
+  },
+);
+
   }
 }
