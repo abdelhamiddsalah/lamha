@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lamha/core/routing/routes.dart';
-import 'package:lamha/features/onboarding/presentation/widgets/onboarding_view_body.dart';
+import 'package:lamha/features/splash/presentation/pages/splash_view.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -10,6 +10,22 @@ class AppRouter {
       GoRoute(
         path: Routes.splash,
         builder: (context, state) => const OnboardingViewBody(),
+      ),
+      GoRoute(
+        path: Routes.login,
+        builder: (context, state) => const LoginView(),
+      ),
+      GoRoute(
+        path: Routes.register,
+        builder: (context, state) => const SignupView(),
+      ),
+      GoRoute(
+        path: Routes.forgetPassword,
+        builder: (context, state) => const ForgetPasswordView(),
+      ),
+      GoRoute(
+        path: Routes.resetPassword,
+        builder: (context, state) => const ResetPasswordView(),
       ),
     ],
     errorBuilder:
