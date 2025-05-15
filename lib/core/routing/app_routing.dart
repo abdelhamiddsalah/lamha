@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lamha/core/routing/routes.dart';
+import 'package:lamha/features/authintecation/presentation/screens/forget_password_view.dart';
+import 'package:lamha/features/authintecation/presentation/screens/login_view.dart';
+import 'package:lamha/features/authintecation/presentation/screens/reset_password_view.dart';
+import 'package:lamha/features/authintecation/presentation/screens/signup_view.dart';
 import 'package:lamha/features/splash/presentation/pages/splash_view.dart';
 
 class AppRouter {
@@ -10,6 +14,22 @@ class AppRouter {
       GoRoute(
         path: Routes.splash,
         builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: Routes.login,
+        builder: (context, state) => const LoginView(),
+      ),
+      GoRoute(
+        path: Routes.register,
+        builder: (context, state) => const SignupView(),
+      ),
+      GoRoute(
+        path: Routes.forgetPassword,
+        builder: (context, state) => const ForgetPasswordView(),
+      ),
+      GoRoute(
+        path: Routes.resetPassword,
+        builder: (context, state) => const ResetPasswordView(),
       ),
     ],
     errorBuilder:
