@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lamha/core/routing/routes.dart';
-import 'package:lamha/features/splash/presentation/pages/splash_view.dart';
+import 'package:lamha/features/onboarding/presentation/widgets/onboarding_view_body.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -9,7 +9,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: Routes.splash,
-        builder: (context, state) => const SplashView(),
+        builder: (context, state) => const OnboardingViewBody(),
       ),
     ],
     errorBuilder:
