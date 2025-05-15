@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
          theme: ThemeData(
           fontFamily: 'Cairo',
+         
         ),
          locale: const Locale('ar', 'EG'),
           supportedLocales: const [

@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lamha/core/routing/routes.dart';
-import 'package:lamha/features/splash/presentation/pages/splash_view.dart';
-
+import 'package:lamha/features/onboarding/presentation/pages/onboarding_view.dart';
+import 'package:lamha/features/onboarding/presentation/widgets/onboarding_view_body.dart';
+import 'package:lamha/features/authintecation/presentation/screens/forget_password_view.dart';
+import 'package:lamha/features/authintecation/presentation/screens/login_view.dart';
+import 'package:lamha/features/authintecation/presentation/screens/reset_password_view.dart';
+import 'package:lamha/features/authintecation/presentation/screens/signup_view.dart';
 class AppRouter {
   static final GoRouter router = GoRouter(
     initialLocation: Routes.splash,
     routes: [
       GoRoute(
         path: Routes.splash,
-        builder: (context, state) => const OnboardingViewBody(),
+        builder: (context, state) => const OnboardingView(),
       ),
       GoRoute(
         path: Routes.login,

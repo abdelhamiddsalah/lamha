@@ -7,81 +7,75 @@ import 'package:lamha/core/widgets/custom_button.dart';
 class OnboardingViewBody extends StatelessWidget {
   const OnboardingViewBody({super.key});
 
+  
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [AppColors.mainColor, Colors.white],
-        ),
-      ),
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        
         child: Column(
           children: [
             SizedBox(height: 80.h),
             Container(
-              width: 200,
-              height: 200,
+              width: 180.h,
+              height: 180.h,
               margin: EdgeInsets.all(16),
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    blurRadius: 20,
-                    spreadRadius: 2,
-                    offset: Offset(0, 10), // اتجاه الظل: للأسفل
+                    color: Colors.black.withOpacity(0.01),
+                    blurRadius: 8,
+                    spreadRadius: 1,
+                    offset: Offset(0, 0),
                   ),
                 ],
               ),
-
-              child: Image.asset(Assets.imagesLogo),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  Assets.imagesLogo,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
+           
+              
             Text(
+              ' لَمْحَةٌ  ',
               textAlign: TextAlign.center,
-
-              ' لمحه  ',
               style: TextStyle(
                 fontSize: 36.sp,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
             Text(
-              textAlign: TextAlign.center,
-
               'تحدي المعرفه  ',
+              textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 36.sp,
+                fontSize: 30.sp,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontFamily: 'Cairo',
+                color: Colors.grey.shade600,
               ),
             ),
-             SizedBox(height: 80.h),
+            SizedBox(height: 80.h),
             CustomButton(
               color: AppColors.mainColor,
               width: double.infinity,
               text: 'تسجيل الدخول',
               textcolor: Colors.white,
               border: Border.all(color: AppColors.mainColor),
-              
             ),
-             SizedBox(height: 60.h),
-              CustomButton(
+            SizedBox(height: 60.h),
+            CustomButton(
               color: Colors.white,
               width: double.infinity,
               text: ' انشاء حساب',
               border: Border.all(color: AppColors.mainColor),
-              textcolor:  AppColors.mainColor,
+              textcolor: AppColors.mainColor,
             ),
           ],
         ),
