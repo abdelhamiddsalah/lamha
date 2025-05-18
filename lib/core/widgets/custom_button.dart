@@ -8,7 +8,7 @@ class CustomButton extends StatelessWidget {
     required this.width, 
     required this.text, 
     this.border,
-    required this.textcolor
+    required this.textcolor, this.onTap
   });
 
   final Color color;
@@ -16,22 +16,26 @@ class CustomButton extends StatelessWidget {
   final String text;
   final BoxBorder? border;
   final Color textcolor;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: 55,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(10),
-        border: border ?? Border.all(color: Colors.white, width: 2),
-      ),
-      child: Center(
-        child: Text(
-          text, 
-          style: TextStyles.titleButton, 
-          textAlign: TextAlign.center,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: width,
+        height: 55,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(10),
+          border: border ?? Border.all(color: Colors.white, width: 2),
+        ),
+        child: Center(
+          child: Text(
+            text, 
+            style: TextStyles.titleButton, 
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );

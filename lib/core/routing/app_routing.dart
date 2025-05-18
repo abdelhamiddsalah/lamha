@@ -5,23 +5,25 @@ import 'package:lamha/features/authintecation/presentation/screens/forget_passwo
 import 'package:lamha/features/authintecation/presentation/screens/login_view.dart';
 import 'package:lamha/features/authintecation/presentation/screens/reset_password_view.dart';
 import 'package:lamha/features/authintecation/presentation/screens/signup_view.dart';
-import 'package:lamha/features/splash/presentation/pages/splash_view.dart';
+import 'package:lamha/features/authintecation/presentation/widgets/send_email.dart';
 
 class AppRouter {
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   static final GoRouter router = GoRouter(
-    initialLocation: Routes.splash,
+    navigatorKey: navigatorKey,
+    initialLocation: Routes.signup,
     routes: [
       GoRoute(
-        path: Routes.splash,
-        builder: (context, state) => const SplashView(),
+        path: Routes.signup,
+        builder: (context, state) => const SignupView(),
       ),
       GoRoute(
         path: Routes.login,
         builder: (context, state) => const LoginView(),
       ),
       GoRoute(
-        path: Routes.register,
-        builder: (context, state) => const SignupView(),
+        path: Routes.sendemail,
+        builder: (context, state) => const SendEmail(),
       ),
       GoRoute(
         path: Routes.forgetPassword,
@@ -29,7 +31,30 @@ class AppRouter {
       ),
       GoRoute(
         path: Routes.resetPassword,
-        builder: (context, state) => const ResetPasswordView(),
+        name: Routes.resetPassword,
+        builder: (context, state) {
+          // Get oobCode from state.extra or from query parameters
+          final String? oobCode = state.extra is String 
+              ? state.extra as String
+              : state.uri.queryParameters['oobCode'];
+          return ResetPasswordView(oobCode: oobCode);
+        },
+      ),
+      // Add a route for handling Firebase Auth deep links directly
+      GoRoute(
+        path: '/__/auth/action',
+        builder: (context, state) {
+          final mode = state.uri.queryParameters['mode'];
+          final oobCode = state.uri.queryParameters['oobCode'];
+          
+          // Handle password reset
+          if (mode == 'resetPassword' && oobCode != null) {
+            return ResetPasswordView(oobCode: oobCode);
+          }
+          
+          // Default to signup if no specific action is matched
+          return const SignupView();
+        },
       ),
     ],
     errorBuilder:

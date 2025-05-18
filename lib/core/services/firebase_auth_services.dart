@@ -44,6 +44,7 @@ class FirebaseAuthServices {
   Future<Either<String, UserCredential>> createUser({
     required String email,
     required String password,
+   required String name
   }) async {
     try {
       final credential = await auth.createUserWithEmailAndPassword(
@@ -108,5 +109,16 @@ class FirebaseAuthServices {
     } catch (e) {
       return Left(e.toString());
     }
+  }
+
+
+   Future<void> confirmPasswordReset({
+    required String oobCode,
+    required String newPassword,
+  }) async {
+    await auth.confirmPasswordReset(
+      code: oobCode,
+      newPassword: newPassword,
+    );
   }
 }

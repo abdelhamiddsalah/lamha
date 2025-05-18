@@ -48,6 +48,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  modal_progress_hud_nsn: ^0.5.1
+  app_links: ^6.4.0
 
 dev_dependencies:
   flutter_test:

@@ -25,3 +25,4 @@ class AuthintecationError extends AuthintecationState {
 class AuthintecationLoading extends AuthintecationState {}
 
 class AuthintecationSuccess extends AuthintecationState {}
+class ForgetPasswordSuccess extends AuthintecationState {}
