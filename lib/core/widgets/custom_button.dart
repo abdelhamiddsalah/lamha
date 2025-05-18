@@ -3,12 +3,13 @@ import 'package:lamha/core/styles/text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    super.key, 
-    required this.color, 
-    required this.width, 
-    required this.text, 
+    super.key,
+    required this.color,
+    required this.width,
+    required this.text,
     this.border,
-    required this.textcolor, this.onTap
+    required this.textcolor,
+    this.onTap,
   });
 
   final Color color;
@@ -32,8 +33,8 @@ class CustomButton extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            text, 
-            style: TextStyles.titleButton, 
+            text,
+            style: TextStyles.titleButton.copyWith(color: textcolor),
             textAlign: TextAlign.center,
           ),
         ),
